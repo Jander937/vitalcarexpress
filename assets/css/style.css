@@ -1,0 +1,11 @@
+@import "commons.css";
+@import "header.css";
+@import "navbar.css";
+
+
+@media screen and (max-width:700px) {
+    .navbar{
+        flex-direction: column;
+    }
+    
+}
