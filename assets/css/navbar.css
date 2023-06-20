@@ -2,8 +2,8 @@
     display: flex;
     justify-content: center !important; 
     background-color: #5b9ca4;
-    top: 0;
-    position: fixed;
+    /* top: 0;
+    position: fixed; */
 
 }
 .navbar a{
