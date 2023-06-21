@@ -221,4 +221,22 @@ img {
     flex: 1;
     border: 1 solid #e1e1e1;
     padding: 1rem;
+    margin: 1.3rem;
   }
+
+  /*Javascript*/
+  .error{
+    border: 3px solid red;
+  }
+  .mensaje {
+    text-align: center;
+  }
+
+  .mensaje-error {
+      display: block;
+      color: red;
+      margin-left: 1.8rem;
+
+      /* Otros estilos que desees aplicar */
+  }
+  
