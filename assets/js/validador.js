@@ -63,7 +63,7 @@ campoMensaje = document.querySelector('#message');
 
             if(!telefono) {
                 errores.push('El nombre debe ser obligatorio'); 
-                alertaCampo(campoTelefono, 'el telefono es obligatorio'); 
+                alertaCampo(campoTelefono, 'el telefono es '); 
             }
 
             if(!fecha) {
@@ -82,8 +82,6 @@ campoMensaje = document.querySelector('#message');
     })
 
 
-
-    const errorContainer= document.querySelector('#error-container')
     function alertaCampo(campo, mensaje) {
         campo.classList.add('error')
 
@@ -92,7 +90,7 @@ campoMensaje = document.querySelector('#message');
         mensajeError.textContent=mensaje; 
 
         // Agregar el mensaje de error al DOM
-        errorContainer.appendChild(mensajeError);
+        campo.parentNode.appendChild(mensajeError);
     };
    
     
