@@ -48,6 +48,9 @@ memoria.forEach(function(cita){
     cancelar.classList.add("btn", "btn-primary", "m-3");
 
 
+
+    
+
     //padres e hijos
     columnaUno.appendChild(titulo)
     columnaDos.appendChild(usuario)

@@ -96,7 +96,21 @@ button.addEventListener('click', function(evento) {
             }
             citas.push(datosEnvios)
             localStorage.setItem('datos', JSON.stringify(citas))
+            Swal.fire(
+                'Excelent',
+                'Cita Agendada',
+                'success'
+              )
          }   
+
+
+         if(errores.length>0){
+            Swal.fire(
+            'Error',
+            'Por favor, diligencia correctamente el formulario',
+            'error'
+        );
+        }
 })
 
 function validarEmail(email){
