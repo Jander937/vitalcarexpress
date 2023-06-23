@@ -1,37 +1,105 @@
-const button = document.querySelector('#button'); 
+let button = document.querySelector('#button'); 
 
-let campoNombre, campoApellido, campoEmail, campoTelefono, campoFecha, campoMensaje, cajaDoc; 
+let campoNombre = document.querySelector('#usuario'); 
+let campoApellido = document.querySelector('#apellido');
+let campoDocumento  = document.querySelector('#doc'); 
+let campoEmail = document.querySelector('#correo');
+let campoTelefono = document.querySelector('#telefono');
+let campoFecha = document.querySelector('#fecha'); 
+let campoHora = document.querySelector('#hora'); 
 
+// Programar Funcion. 
 
+button.addEventListener('click', function(evento) {
+    evento.preventDefault();
+    let usuario = campoNombre.value; 
+    let apellido = campoApellido.value; 
+    let documento = campoDocumento.value; 
+    let email = campoEmail.value; 
+    let telefono = campoTelefono.value; 
+    let fecha = campoFecha.value; 
+    let hora = campoHora.value; 
 
-campoNombre = document.querySelector('#nombre');
+    let errores=[];
+    let citas;
+    let datosMemoria= JSON.parse(localStorage.getItem('datos')) 
 
-campoApellido = document.querySelector('#apellido');
+    if(!datosMemoria) {
+        citas=[];
+    } else {
+        citas = datosMemoria; 
+    }
+    
+    if(!usuario){
+    errores.push('El nombre debe ser obligatorio'); 
+    campoNombre.classList.add("error");
+    campoNombre.classList.add("is-invalid"); 
+    document.getElementById('errorUsuario').textContent = 'El campo nombre debe ser obligatorio';
+    } else if(usuario.length < 10) {
+        campoNombre.classList.add("is-invalid")
+        document.getElementById('errorUsuario').textContent = 'El Nombre debe tener minimo 10 caracteres';    
+    }
 
-cajaDoc = document.querySelector('#doc');
+    if(!apellido){
+        errores.push('El apellido debe ser obligatorio'); 
+        campoApellido.classList.add("is-invalid")
+        document.getElementById('errorApellido').textContent = 'El campo apellido debe ser obligatorio';
+    } else if (apellido.length < 10) {
+        campoApellido.classList.add("is-invalid")
+        document.getElementById('errorApellido').textContent = 'El apellido debe tener minimo 10 caracteres';    
+    }
 
-//campoEmail = document.querySelector('#email');
+    if(!documento){
+        errores.push('El documento debe ser obligatorio'); 
+        campoDocumento.classList.add("is-invalid")
+        document.getElementById('errorDocumento').textContent = 'El campo documento debe ser obligatorio';
+    }
 
- //campoTelefono = document.querySelector('#tel');
+    if(!email){
+        errores.push('El correo debe ser obligatorio'); 
+        campoEmail.classList.add("is-invalid")
+        document.getElementById('errorCorreo').textContent = 'El campo correo debe ser obligatorio';
+    }  else if (!validarEmail(email)) {
+        errores.push('El correo debe ser obligatorio')
+        campoEmail.classList.add("is-invalid")
+        document.getElementById('errorCorreo').textContent = 'El correo electrónico no es válido';
+    }
 
-//campoFecha= document.querySelector('#fecha');
+    if(!telefono){
+        errores.push('El telefono debe ser obligatorio'); 
+        campoTelefono.classList.add("is-invalid")
+        document.getElementById('errorTel').textContent = 'El campo Telefono debe ser obligatorio';
+        }
 
-//campoMensaje = document.querySelector('#message');
+     if(!fecha){
+            errores.push('La fehca debe ser obligatoria'); 
+            campoFecha.classList.add("is-invalid")
+            document.getElementById('errorFecha').textContent = 'El campo fecha debe ser obligatorio';
+         }
 
-
-
-    button.addEventListener('click', function(evento){
+     if(hora=='Seleccione una hora'){
+            errores.push('La hora debe ser obligatoria'); 
+            campoHora.classList.add("is-invalid")
+            document.getElementById('errorHora').textContent = 'El campo hora debe ser obligatorio';
+         }
 
         
-            evento.preventDefault();
-            
-            let usuario = campoNombre.value; 
-            let apellido =  campoApellido.value;
-            let documento = cajaDoc.value; 
-            let email = campoEmail.value; 
-            //let telefono = campoTelefono.value; 
-            //let fecha = campoFecha.value; 
-            //let message = campoMensaje.value; 
+         if(errores.length == 0) {
+            let datosEnvios = {
+                usuario,
+                apellido,
+                documento,
+                email,
+                telefono,
+                fecha,
+                hora
+            }
+            citas.push(datosEnvios)
+            localStorage.setItem('datos', JSON.stringify(citas))
+         }   
+})
 
-            console.log(`El nombre del usuario es: ${usuario} \nEl apellido del usuario es: ${apellido} \nEl documento del usuario es ${documento}`);
-    })
+function validarEmail(email){
+    const regularEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return regularEmail.test(email)
+}
