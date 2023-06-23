@@ -1,7 +1,7 @@
 .navbar{
     display: flex;
     justify-content: center !important; 
-    background-color: #4CAF50;
+    background-color: #153f59;
     /* top: 0;
     position: fixed; */
     
@@ -16,5 +16,5 @@
     font-weight: bold;
 }
 .navbar a:hover{
-    background-color: #5DADE2;
+    background-color: #112f41;
 }
