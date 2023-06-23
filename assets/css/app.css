@@ -9,3 +9,255 @@
   .correcto {
     color: black;
   }
+
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+ 
+  
+
+  body { 
+    /* font-family: 'Raleway', sans-serif; */
+    font-size: 1.6rem;
+    line-height: 2;
+  }
+
+
+  /*Gloabales */
+  
+  h1, h2, h3 { 
+    /* font-family: 'Playfair Display', serif; */
+    margin: 0 0 5rem 0;
+  }
+
+
+  h1 {
+    font-size: 5rem;
+  }
+
+
+  h2 {
+    font-size: 4rem;
+  }
+
+  h3 {
+    font-size: 3rem;
+  }
+
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+
+
+.contenedor {
+    max-width: 120rem;
+    margin: 0 auto;
+}
+
+
+
+img {
+    /* max-width: 100%;
+    display: block ; */
+}
+
+.btn {
+
+  background-color: #8cbc00;
+  color: white;
+  display: block;
+  text-transform: uppercase;
+  font-weight: 900;
+  padding: 1rem;
+  transition: background-color .3s ease-out;
+  text-align: center;
+  border: none;
+
+}
+
+
+
+
+.btn:hover {
+
+    background-color: #769c02;
+    cursor: pointer;
+  }
+  
+  
+  
+  /**Utilidades**/
+  .text-center  {
+    text-align: center;
+  }
+  
+    
+    /*Header y navegacion*/
+  
+   h1 span {
+      color: #037bc0;
+  }   
+  
+  
+  .nombre-sitio {
+      margin-top: 5rem;
+      text-align: center;
+  }
+  
+  .max-width-30 {
+      max-width: 30rem;
+  }
+  
+  .contenedor-navegacion {
+  
+      border-top:  .1rem solid #e1e1e1;
+  }
+  
+  .nav-principal {
+     padding: 20px 0; 
+     display: flex;
+     justify-content: space-evenly;
+  }
+  
+  
+  
+  
+  
+  .hero {
+      background-image: url(../../imagenes/principal.jpg);
+      background-repeat:  no-repeat;
+      background-size: cover;
+      background-position:  center center;
+      height: 55rem;
+  }
+  
+  /*Categorias */
+  
+  .categorias {
+      padding-top: 5rem;
+  }
+  
+  
+  .contenedor h2 {
+      text-align:  center;
+  }
+  
+  .categoria a {
+      text-align: center;
+      display: block;
+      padding: 2rem;
+      font-size: 2rem;
+  }
+  
+  .categoria a:hover {
+      background-color: #037bc0;
+      color: #fff;
+      border-bottom-right-radius: 1rem;
+  }
+  
+  .listado-categorias {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem ;
+  }
+  
+  /** Sobre nosotros**/
+  .sobre-nosotros {
+      background-image: linear-gradient(to right, transparent 50%, #037bc0 50%, #037bc0
+       100%), url(../../imagenes/nosotros.jpg);
+       background-position: left center;
+       padding: 10rem  0;
+       background-repeat: no-repeat;
+       background-size: 100%, 120rem;
+       margin-top: 2rem;
+  }
+  
+  .sobre-nosotros-grid {
+    display: flex;
+    justify-content: flex-end;
+    
+  }
+  .texto-nosotros {
+    flex-basis:  50%;
+    padding-left: 10rem;
+    color:  #fff;
+  }
+  
+
+
+/*Formulario*/
+.formulario {
+    max-width: 60rem;
+    margin: 0 auto;
+  }
+  .formulario fieldset {
+   border: 1px solid black;
+   margin-bottom: 2rem;
+  }
+  .formulario legend {
+    background-color: #005485;
+    width: 100%;
+    color: #fff;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 900;
+    padding:  1rem;
+    margin-bottom: 4rem;
+  }
+  
+  .campo {
+      display: flex;
+      margin-bottom:  2rem;
+  }
+  
+  .campo label {
+      flex-basis: 10rem;
+  }
+  .campo input[type = "text"],
+   .campo input[type = "tel"],
+   .campo input[type = "email"],
+   .campo input[type = "number"],
+   .campo input:not( [type = "radio" ] ),
+   .campo textarea,
+   .campo select {
+    flex: 1;
+    border: 1 solid #e1e1e1;
+    padding: 1rem;
+  }
+
+  /*responsive*/
+  @media only screen and (max-width: 768px) {
+    .contenedor {
+      max-width: 100%;
+      padding: 0 2rem;
+    }
+  
+    .max-width-30 {
+      max-width: 100%;
+    }
+  
+    .hero {
+      height: 40rem;
+    }
+  
+    .listado-categorias {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  
+    .sobre-nosotros-grid {
+      flex-direction: column;
+    }
+  
+    .texto-nosotros {
+      padding-left: 0;
+    }
+  
+    .formulario {
+      max-width: 100%;
+      padding: 0 2rem;
+    }
+
+  }
