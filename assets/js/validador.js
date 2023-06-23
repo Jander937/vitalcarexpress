@@ -83,6 +83,7 @@ button.addEventListener('click', function(evento) {
             document.getElementById('errorHora').textContent = 'El campo hora debe ser obligatorio';
          }
 
+
         
          if(errores.length == 0) {
             let datosEnvios = {
@@ -103,3 +104,32 @@ function validarEmail(email){
     const regularEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return regularEmail.test(email)
 }
+
+
+        
+         if(errores.length == 0) {
+            let datosEnvios = {
+                usuario,
+                apellido,
+                documento,
+                email,
+                telefono,
+                fecha,
+                hora
+            }
+            citas.push(datosEnvios)
+            localStorage.setItem('datos', JSON.stringify(citas))
+         }   
+})
+
+function validarEmail(email){
+    const regularEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return regularEmail.test(email)
+}
+
+
+
+
+
+    
+

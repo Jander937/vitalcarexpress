@@ -1,5 +1,6 @@
 
 
+
   /*Javascript*/
   .error {
     color: red;
@@ -114,3 +115,17 @@ h1,li,p{
   margin: 0;
   box-sizing: border-box;
 }
+
+  /*Javascript*/
+    .error {
+      color: red;
+      font-size: 12px;
+      margin-top: 5px;
+  }
+
+  .correcto {
+    color: black;
+  }
+
+  
+
